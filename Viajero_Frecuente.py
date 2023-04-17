@@ -1,35 +1,38 @@
 class Viajero:
-    num_viajero: int
-    dni: str
-    nombre: str
-    apellido: str
-    millas_acum: int
+    __num_viajero = 0
+    __dni = ''
+    __nombre= ''
+    __apellido = ''
+    __millas_acum = 0
 
 
     def __init__(self, num_viajero, dni, nombre, apellido, millas_acum) -> None:
-        self.num_viajero = num_viajero
-        self.dni = dni
-        self.nombre = nombre
-        self.apellido = apellido
-        self.millas_acum = millas_acum
+        self.__num_viajero = num_viajero
+        self.__dni = dni
+        self.__nombre = nombre
+        self.__apellido = apellido
+        self.__millas_acum = millas_acum
         pass
 
     def getmillas(self):
-        return self.millas_acum
+        return self.__millas_acum
     
     def getnombrecompleto(self):
-        return self.nombre + ' ' +self.apellido
+        return self.__nombre + ' ' +self.__apellido
 
     def acumularMillas(self, entero):
-        self.millas_acum += entero
+        self.__millas_acum += entero
         print('Sus millas se acumularon con exito, sus millas actuales son {}' .format(self.getmillas()))
 
     def getnumv(self):
-        return self.num_viajero
-
+        return self.__num_viajero
+    
+    def getdni(self):
+        return self.__dni
+    
 
     def canjearMillas(self, millascanje):
-        if millascanje <= self.millas_acum:
-            self.millas_acum = self.millas_acum - millascanje
+        if millascanje <= self.__millas_acum:
+            self.__millas_acum = self.__millas_acum - millascanje
             print('millas canjeadas con exito, sus millas actuales son {}' .format(self.getmillas()))
         else: return print('Sus millas son insuficientes')
