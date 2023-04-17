@@ -21,14 +21,19 @@ if __name__ == "__main__":
             viajero = Viajero(int(num_viajero), dni, nombre, apellido, int(millas_acumuladas))
             viajeros.append(viajero)
         for viajero in viajeros:
-             print("Numero de viajero: {}, DNI: {}, Nombre: {}, Apellido: {}, Millas acumuladas: {}".format(viajero.num_viajero, viajero.dni, viajero.nombre, viajero.apellido, viajero.getmillas()))
+             print("Numero de viajero: {}, DNI: {}, Nombre y Apellido: {}, Millas acumuladas: {}".format(viajero.getnumv(), viajero.getdni(), viajero.getnombrecompleto(), viajero.getmillas()))
+
     num_vfrecuente = int(input('Ingrese un nnumero de viajero frecuente:'))
-    viajero_actual = Viajero
-    for viajero in viajeros:
-        if viajero.getnumv() == num_vfrecuente:
-            viajero_actual = viajero
-            break
-    
+    i = 0
+    viajero_actual = None
+    while  i < len(viajeros):
+        #viajero = viajeros[i]
+        if viajeros[i].getnumv() == num_vfrecuente:
+            viajero_actual = viajeros[i]
+            i = len(viajeros)
+        else:
+            i += 1
+
     if viajero_actual is None:
         print('El numero de viajero ingresado no es valido')
     else:
@@ -38,7 +43,7 @@ if __name__ == "__main__":
             print('a - Consultar cantidad de millas')
             print('b - Acumular millas')
             print('c - Canjear millas')
-            op = input('Ingrese opcion:')
+            op = str(input('Ingrese opcion:'))
             if op == 'a':
                 print('Cantidad de millas acumuladas {}' .format(viajero_actual.getmillas()))
             elif op == 'b':
