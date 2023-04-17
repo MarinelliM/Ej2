@@ -20,7 +20,8 @@ if __name__ == "__main__":
             num_viajero, dni, nombre, apellido, millas_acumuladas = fila
             viajero = Viajero(int(num_viajero), dni, nombre, apellido, int(millas_acumuladas))
             viajeros.append(viajero)
-
+        for viajero in viajeros:
+             print("Numero de viajero: {}, DNI: {}, Nombre: {}, Apellido: {}, Millas acumuladas: {}".format(viajero.num_viajero, viajero.dni, viajero.nombre, viajero.apellido, viajero.getmillas()))
     num_vfrecuente = int(input('Ingrese un nnumero de viajero frecuente:'))
     viajero_actual = Viajero
     for viajero in viajeros:
